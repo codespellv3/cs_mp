@@ -12,9 +12,9 @@ namespace Mirror.Examples.Additive
         public float turnSpeedAccel = 30f;
         public float turnSpeedDecel = 30f;
 
-        public override void OnStartServer()
+        public override void OnStartClient()
         {
-            base.OnStartServer();
+            base.OnStartClient();
             playerColor = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
         }
 

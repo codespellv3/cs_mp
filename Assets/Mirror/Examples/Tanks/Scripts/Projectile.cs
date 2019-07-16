@@ -8,7 +8,7 @@ namespace Mirror.Examples.Tanks
         public Rigidbody rigidBody;
         public float force = 1000;
 
-        public override void OnStartServer()
+        public override void OnStartClient()
         {
             Invoke(nameof(DestroySelf), destroyAfter);
         }

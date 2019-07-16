@@ -429,7 +429,7 @@ namespace Mirror
             {
                 try
                 {
-                    comp.OnStartServer();
+                    comp.OnStartClient();
                 }
                 catch (Exception e)
                 {
