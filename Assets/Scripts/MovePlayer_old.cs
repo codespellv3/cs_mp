@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovePlayer : MonoBehaviour {
+public class MovePlayerOld : MonoBehaviour {
     public float speed = 5;
     public float gravity = -5;
     public float rotSpeed = 180;

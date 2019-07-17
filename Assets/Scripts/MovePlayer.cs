@@ -14,23 +14,56 @@ public class MovePlayer : NetworkBehaviour
     [SyncVar]
     public int health;
 
+    public float gravity = -5;
+    public float rotSpeed = 180;
+    float velocityY = 0;
+    CharacterController controller;
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        controller = GetComponent<CharacterController>();
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+    }
+
     // Update is called once per frame
     void Update()
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
+        
         if (isLocalPlayer)
         {
-            float h = Input.GetAxis("Horizontal");
-            float v = Input.GetAxis("Vertical");
+            velocityY += gravity * Time.deltaTime;
 
-            Vector3 movement = new Vector3(h, 0.0f, v);
-            rb.AddForce(movement*speed);
-        } else
-        {
-            Debug.Log("Not controlled by local player!");
-            return;
+            Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+            input = input.normalized;
+
+            Vector3 temp = Vector3.zero;
+
+            if (input.z > 0)
+            {
+                temp += transform.forward;
+            }
+            else if (input.z < 0)
+            {
+                temp += transform.forward * -1;
+            }
+
+            if (input.x > 0)
+            {
+                transform.Rotate(0, rotSpeed * Time.deltaTime, 0);
+            }
+            else if (input.x < 0)
+            {
+                transform.Rotate(0, - rotSpeed * Time.deltaTime, 0);
+            }
+
+            Vector3 velocity = temp * speed;
+            velocity.y = velocityY;
+ 
+            controller.Move(velocity * Time.deltaTime);
+
+
         }
-
-
-    }
+     }
 }
