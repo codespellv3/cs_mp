@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncInterval: 0.1
-  speed: 1
+  speed: 10
   playerName: 
   health: 0
   gravity: -5
