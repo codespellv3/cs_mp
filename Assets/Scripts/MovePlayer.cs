@@ -18,12 +18,17 @@ public class MovePlayer : NetworkBehaviour
     public float rotSpeed = 180;
     float velocityY = 0;
     CharacterController controller;
+    Camera avatarCamera;
 
     public override void OnStartClient()
     {
         base.OnStartClient();
         controller = GetComponent<CharacterController>();
         Rigidbody rb = GetComponent<Rigidbody>();
+
+        avatarCamera = GetComponent<Camera>();
+        avatarCamera.enabled = true;
+
 
     }
 
