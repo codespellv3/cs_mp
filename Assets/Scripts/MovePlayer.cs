@@ -20,9 +20,9 @@ public class MovePlayer : NetworkBehaviour
     CharacterController controller;
     Camera avatarCamera;
 
-    public override void OnStartClient()
+    public override void OnStartLocalPlayer()
     {
-        base.OnStartClient();
+        base.OnStartLocalPlayer();
         controller = GetComponent<CharacterController>();
         Rigidbody rb = GetComponent<Rigidbody>();
 
