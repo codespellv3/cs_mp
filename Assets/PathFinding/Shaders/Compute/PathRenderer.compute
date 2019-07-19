@@ -1,0 +1,178 @@
+﻿#define THREAD_1D [numthreads(8, 1, 1)]
+#define THREAD_2D [numthreads(8, 8, 1)]
+
+#pragma kernel Initialize
+#pragma kernel Head
+#pragma kernel Sequence
+#pragma kernel Check
+#pragma kernel ViewAlign
+
+#include "../Common/Segment.cginc"
+#include "../Common/Random.cginc"
+
+StructuredBuffer<float3> _Path;
+RWStructuredBuffer<Segment> _Segments;
+RWStructuredBuffer<float3> _Vertices;
+
+int _PathCount, _SegmentsCount, _InstancesCount;
+float _InvSegmentsCount;
+
+float _DT, _Speed;
+float _Longest;
+
+float _Thickness;
+float3 _LocalCameraDirection;
+
+float3 GetPosition(float t, int iid) {
+	int ioff = iid * _PathCount;
+	float p = saturate(t) * (_PathCount - 1);
+	int pid = floor(p);
+	int nid = ceil(p);
+	float3 pp = _Path[ioff + pid];
+	float3 np = _Path[ioff + nid];
+	return lerp(pp, np, saturate(p - pid));
+}
+
+void Init(inout Segment segment, int iid) {
+	segment.position.xyz = GetPosition(0, iid);
+	segment.t = 0;
+
+	int ioff = iid * _PathCount;
+	float d = 0;
+	for (int i = 0; i < _PathCount - 1; i++) {
+		float3 from = _Path[ioff + i].xyz;
+		float3 to = _Path[ioff + i + 1].xyz;
+		d += distance(from, to);
+	}
+
+	segment.ratio = saturate(d / _Longest);
+	float r = nrand(iid.xx);
+	segment.speed = lerp(0.1, 1.0, 1.0 - segment.ratio) + r * 0.1;
+}
+
+THREAD_1D
+void Initialize (uint3 id : SV_DispatchThreadID) {
+	int iid = (int)id.x;
+	if (iid >= _InstancesCount) return;
+
+	int ioff = iid * _SegmentsCount;
+	Segment head = _Segments[ioff];
+	Init(head, iid);
+
+    float r = nrand(iid.xx);
+    head.t = r;
+	head.position.xyz = GetPosition(head.t, iid);
+    _Segments[ioff] = head;
+
+	Segment next = head;
+	for (int idx = 1; idx < _SegmentsCount; idx++) {
+		int sid = ioff + idx;
+		Segment current = _Segments[sid];
+        Init(current, iid);
+        current.t = head.t;
+        current.position.xyz = head.position.xyz;
+		_Segments[sid] = current;
+        next = current;
+    }
+}
+
+THREAD_1D
+void Head (uint3 id : SV_DispatchThreadID) {
+	int iid = (int)id.x;
+	if (iid >= _InstancesCount) return;
+
+	int ioff = iid * _SegmentsCount;
+	Segment head = _Segments[ioff];
+
+	// head
+	head.t = saturate(head.t + _DT * _Speed * head.speed);
+	head.position.xyz = GetPosition(head.t, iid);
+
+	_Segments[ioff] = head;
+}
+
+THREAD_1D
+void Sequence (uint3 id : SV_DispatchThreadID) {
+	int iid = (int)id.x;
+	if (iid >= _InstancesCount) return;
+
+	int ioff = iid * _SegmentsCount;
+	
+	Segment head = _Segments[ioff];
+    float len = lerp(1.0, 0.0001, head.ratio) * _InvSegmentsCount;
+    float speed = saturate(_Speed * lerp(0.5, 1.0, head.ratio)) * saturate(_DT * 30.0);
+
+	for (int idx = 1; idx < _SegmentsCount; idx++) {
+		int sid = ioff + idx;
+		Segment next = _Segments[sid - 1];
+		Segment current = _Segments[sid];
+
+		float d = (next.t - current.t) * speed;
+		current.t = max(next.t - len, saturate(current.t + d));
+
+		current.position.xyz = GetPosition(current.t, iid);
+		_Segments[sid] = current;
+	}
+}
+
+THREAD_1D
+void Check (uint3 id : SV_DispatchThreadID) {
+	int iid = (int)id.x;
+	if (iid >= _InstancesCount) return;
+
+	bool finish = true;
+	int ioff = iid * _SegmentsCount;
+
+	int i;
+	for (i = 0; i < _SegmentsCount; i++) {
+		Segment s = _Segments[ioff + i];
+		finish = finish && (s.t >= 0.9999);
+	}
+
+	if (!finish) return;
+
+	for (i = 0; i < _SegmentsCount; i++) {
+		Segment s = _Segments[ioff + i];
+		Init(s, iid);
+		_Segments[ioff + i] = s;
+	}
+
+}
+
+THREAD_2D
+void ViewAlign (uint3 id : SV_DispatchThreadID)
+{
+	int idx = (int)id.x;
+	int iid = (int)id.y;
+	if (idx >= _SegmentsCount || iid >= _InstancesCount) return;
+
+	int iseg = idx + _SegmentsCount * iid;
+	float3 cur = _Segments[iseg].position.xyz;
+	float3 right = float3(0, 0, 0);
+
+	if (idx == 0) {
+		// head
+		float3 prev = _Segments[iseg + 1].position.xyz;
+		float3 dir = normalize(cur - prev);
+		right = normalize(cross(dir, _LocalCameraDirection)) * 0.5 * _Thickness;
+	} else if (idx == _SegmentsCount - 1) {
+		// tail
+		float3 next = _Segments[iseg - 1].position.xyz;
+		float3 dir = normalize(next - cur);
+		right = normalize(cross(dir, _LocalCameraDirection)) * 0.5 * _Thickness;
+	} else {
+		// middle
+		float3 prev = _Segments[iseg + 1].position.xyz;
+		float3 next = _Segments[iseg - 1].position.xyz;
+		float3 dir10 = normalize(cur - prev);
+		float3 dir21 = normalize(next - cur);
+		float3 dir = ((dir10 + dir21) * 0.5f);
+		float d = saturate((dot(dir10, dir21) + 1.0) * 0.5);
+		right = normalize(cross(dir, _LocalCameraDirection)) * lerp(1, 0.5, d) * _Thickness;
+	}
+
+	int voffset = (_SegmentsCount * 2) * iid;
+	_Vertices[voffset + idx * 2] = cur - right;
+	_Vertices[voffset + idx * 2 + 1] = cur + right;
+}
+
