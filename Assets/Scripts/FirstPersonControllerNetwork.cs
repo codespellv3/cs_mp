@@ -48,7 +48,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
 			base.OnStartLocalPlayer();
 			m_CharacterController = GetComponent<CharacterController>();
-            m_Camera = GetComponent<Camera>();
+            m_Camera = GetComponentInChildren<Camera>();
 			m_Camera.enabled = true;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
             m_FovKick.Setup(m_Camera);
