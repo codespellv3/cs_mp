@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using Mirror;
 namespace CommandPattern
 {
     //The parent class
@@ -36,13 +36,23 @@ namespace CommandPattern
         //Called when we press a key
         public override void Execute(GameObject obj, Dictionary<string, object> args)
         {
-            //Move the box
-            GameObject orb = GameObject.CreatePrimitive(
+            //Create the object
+            GameObject objSpell = new GameObject("Spell");
+            objSpell.AddComponent<Rigidbody>();
+            objSpell.AddComponent<MeshFilter>();
+            objSpell.AddComponent<SphereCollider>();
+            objSpell.AddComponent<MeshRenderer>();
+            objSpell.AddComponent<NetworkIdentity>();
+            objSpell.AddComponent<NetworkTransform>();
+            GameObject primitive = GameObject.CreatePrimitive(
 (UnityEngine.PrimitiveType)args["primitive"]
                     );
-            orb.AddComponent<Rigidbody>();
-            orb.transform.position = (UnityEngine.Vector3)args["position"];
-            spell.reg.Add("orb",orb);
+            Object.Destroy(primitive);
+            objSpell.GetComponent<MeshFilter>().mesh = primitive.GetComponent<MeshFilter>().mesh;
+            objSpell.transform.position = (UnityEngine.Vector3)args["position"];
+            spell.reg.Add("orb", objSpell);
+            ClientScene.RegisterPrefab(objSpell);
+            NetworkServer.Spawn(objSpell);
 
             base.Execute(obj, args);
 
