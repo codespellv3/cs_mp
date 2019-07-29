@@ -17,7 +17,8 @@ GameObject:
   - component: {fileID: 8046324447446147388}
   - component: {fileID: 2114619289986286410}
   - component: {fileID: 5839307984049274062}
-  - component: {fileID: 654852309199507985}
+  - component: {fileID: 2209581111101076937}
+  - component: {fileID: 9184394418494770693}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Untagged
@@ -289,8 +290,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serverOnly: 0
   localPlayerAuthority: 1
-  m_AssetId: 
-  m_SceneId: 3727788397
+  m_AssetId: c431a00f5ab9e45ceb973faf682dd510
+  m_SceneId: 0
 --- !u!114 &8046324447446147388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +351,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &654852309199507985
+--- !u!114 &2209581111101076937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -359,11 +360,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 2728224418826929305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd0ca8b8620eb42628499e8c5781872f, type: 3}
+  m_Script: {fileID: 11500000, guid: eea009b6880e8481fbf188979ecbc55d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncInterval: 0.1
-  sm: {fileID: 0}
+--- !u!114 &9184394418494770693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2728224418826929305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7662910d4daae4d4eb6e5dc2bdfac928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncInterval: 0.1
 --- !u!1 &2728224418826929307
 GameObject:
   m_ObjectHideFlags: 0
