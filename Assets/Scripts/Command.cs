@@ -36,6 +36,7 @@ namespace CommandPattern
         //Called when we press a key
         public override void Execute(GameObject obj, Dictionary<string, object> args)
         {
+            Debug.Log("Executing Create" );
             //Create the object
             GameObject objSpell = new GameObject("Spell");
             objSpell.AddComponent<Rigidbody>();
@@ -51,6 +52,7 @@ namespace CommandPattern
             objSpell.GetComponent<MeshFilter>().mesh = primitive.GetComponent<MeshFilter>().mesh;
             objSpell.transform.position = (UnityEngine.Vector3)args["position"];
             spell.reg.Add("orb", objSpell);
+            Debug.Log("Created spell object" + objSpell.ToString());
             ClientScene.RegisterPrefab(objSpell);
             NetworkServer.Spawn(objSpell);
 

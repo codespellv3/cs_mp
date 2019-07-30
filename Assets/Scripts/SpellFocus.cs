@@ -20,7 +20,7 @@ public class SpellFocus : NetworkBehaviour
     // Schedule spell for casting in the update
     public void castSpell(Graph g) {
 
-        _stack.Add(g);
+        _stack.Add(Graph.Clone(g));
     }
 
     // Update is called once per frame

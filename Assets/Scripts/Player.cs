@@ -29,7 +29,8 @@ public class Player : NetworkBehaviour
         bool m_Fire = Input.GetButtonDown("Fire1");
         if (m_Fire)
         {
-            focus.castSpell(book.spells["Fireball"]);
+            Graph _s = book.spells["Fireball"];
+            focus.castSpell(_s);
         }
 
     }

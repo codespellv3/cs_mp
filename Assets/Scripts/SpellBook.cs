@@ -20,7 +20,7 @@ public class SpellBook
     // Update is called once per frame
     public void PopulateSpells()
     {
-        Graph spell = new Graph();
+        Graph spell = ScriptableObject.CreateInstance<Graph>();
 
         CommandPattern.Command n1 = new CommandPattern.Create("CREATE_ORB", spell);
         CommandPattern.Command n2 = new CommandPattern.Move("MOVE_ORB", spell);

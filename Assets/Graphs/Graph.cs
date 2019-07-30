@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Graph {
+[System.Serializable]
+public class Graph : ScriptableObject
+{
 
     public Node start;
     public Dictionary<string, GameObject> reg;
@@ -13,6 +14,27 @@ public class Graph {
         reg = new Dictionary<string, GameObject>(); 
         start = new Node("START");
         start.prev = null;
+    }
+
+    public static Graph Clone(Graph g)
+    {
+        string serialized = JsonUtility.ToJson(g);
+        Debug.Log(serialized);
+        return JsonUtility.FromJson<Graph>(serialized);
+    }
+
+    public string PrintString()
+    {
+        string s = "Graph(";
+        foreach (Node n in this.Traverse())
+        {
+            if (n == null)
+                continue;
+            s += n.name + ",";
+
+        }
+        s += "END";
+        return s;
     }
 
     public IEnumerable<Node> Traverse()
@@ -39,6 +61,7 @@ public class Graph {
                 
             
         }
+        Debug.Log("End of traversal");
     }
 
 }
