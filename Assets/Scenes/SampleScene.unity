@@ -226,7 +226,8 @@ MonoBehaviour:
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
-  spawnPrefabs: []
+  spawnPrefabs:
+  - {fileID: 2085737459348403074, guid: 1388819f8bc854370a9b479246f9f505, type: 3}
 --- !u!4 &109962064
 Transform:
   m_ObjectHideFlags: 0

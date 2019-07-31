@@ -29,9 +29,24 @@ public class Player : NetworkBehaviour
         bool m_Fire = Input.GetButtonDown("Fire1");
         if (m_Fire)
         {
-            Graph _s = book.spells["Fireball"];
-            focus.castSpell(_s);
+            CmdFire();
+            //Graph _s = book.spells["Fireball"];
+            //focus.castSpell(_s);
         }
+
+    }
+
+    [Command]
+    void CmdFire()
+    {
+        Debug.Log("FIRING!!!");
+        GameObject spell =  (GameObject)Resources.Load("prefabs/BaseSpell", typeof(GameObject));
+        GameObject clone = Instantiate(spell, transform.position,
+            transform.rotation);
+        clone.AddComponent<Rigidbody>();
+
+        clone.GetComponent<Rigidbody>().velocity = transform.forward;
+        NetworkServer.Spawn(clone, System.Guid.NewGuid());
 
     }
 }
