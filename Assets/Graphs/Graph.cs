@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class Graph : ScriptableObject
 {
 
@@ -30,7 +29,7 @@ public class Graph : ScriptableObject
         {
             if (n == null)
                 continue;
-            s += n.name + ",";
+            s += n.nname + ",";
 
         }
         s += "END";
@@ -51,7 +50,7 @@ public class Graph : ScriptableObject
             yield return n;
             foreach (Edge e in n.Edges)
             {
-                Debug.Log("Adding node " + e.To.name);
+                Debug.Log("Adding node " + e.To.nname);
                 actives.Push(e.To);
             }
             if (count > MAX_ITER)

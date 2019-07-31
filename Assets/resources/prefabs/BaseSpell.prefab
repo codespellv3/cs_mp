@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8095493114583327521}
   - component: {fileID: 1938474542520012019}
   - component: {fileID: 5090372640033522732}
+  - component: {fileID: 5678964636630711571}
   m_Layer: 0
   m_Name: BaseSpell
   m_TagString: Untagged
@@ -107,8 +108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serverOnly: 0
   localPlayerAuthority: 0
-  m_AssetId: 
-  m_SceneId: 2366111823
+  m_AssetId: 1388819f8bc854370a9b479246f9f505
+  m_SceneId: 0
 --- !u!114 &5090372640033522732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,3 +124,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncInterval: 0.1
   compressRotation: 1
+--- !u!114 &5678964636630711571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085737459348403074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0f5df4f72a44c7fa5e3a5db723398a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

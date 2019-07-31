@@ -20,7 +20,7 @@ public class SpellFocus : NetworkBehaviour
     // Schedule spell for casting in the update
     public void castSpell(Graph g) {
 
-        _stack.Add(Graph.Clone(g));
+        _stack.Add(g);
     }
 
     // Update is called once per frame
@@ -32,14 +32,31 @@ public class SpellFocus : NetworkBehaviour
         // Send all waiting spell to the executor coRutine
         foreach (Graph g in _stack)
         {
-            StartCoroutine(DoCast(g));
+            //StartCoroutine(DoCast(g));
+            CmdCast(g);
         }
 
         _stack.Clear();
 
     }
 
-    IEnumerator DoCast(Graph spell)
+    [Command]
+    void CmdCast(Graph g)
+    {
+        Debug.Log("FIRING!!!");
+        GameObject spellGO = (GameObject)Resources.Load("prefabs/BaseSpell", typeof(GameObject));
+        GameObject clone = Instantiate(spellGO, transform.position,
+            transform.rotation);
+        Spell spell = clone.GetComponent<Spell>();
+        spell.spellGraph = g;
+        //clone.AddComponent<Rigidbody>();
+        //clone.GetComponent<Rigidbody>().velocity = transform.forward;
+        NetworkServer.Spawn(clone, System.Guid.NewGuid());
+        StartCoroutine(DoCast(clone, g));
+
+    }
+
+    IEnumerator DoCast(GameObject go, Graph spell)
     {
 
         foreach (Node n in spell.Traverse())
@@ -58,7 +75,7 @@ public class SpellFocus : NetworkBehaviour
             //{
 
 //            }
-            c.Execute(null, args);
+            c.Execute(go, args);
             yield return new WaitForSeconds(.1f);
 
 

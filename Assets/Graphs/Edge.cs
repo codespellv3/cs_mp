@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Edge {
+
+public class Edge 
+{
 
     public Node From { get { return from; } }
     public Node To { get { return to; } }

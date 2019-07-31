@@ -16,7 +16,7 @@ namespace CommandPattern
         public virtual void Execute(GameObject obj, Dictionary<string, object> args)
         {
             //Save the command
-            Debug.Log("Executed " + this.name);
+            Debug.Log("Executed " + this.nname);
         }
 
     }
@@ -34,12 +34,13 @@ namespace CommandPattern
         }
 
         //Called when we press a key
-        public override void Execute(GameObject obj, Dictionary<string, object> args)
+        public override void Execute(GameObject spellGO, Dictionary<string, object> args)
         {
             Debug.Log("Executing Create" );
             //Create the object
-            GameObject objSpell = new GameObject("Spell");
-            objSpell.AddComponent<Rigidbody>();
+
+            spellGO.AddComponent<Rigidbody>();
+            /*
             objSpell.AddComponent<MeshFilter>();
             objSpell.AddComponent<SphereCollider>();
             objSpell.AddComponent<MeshRenderer>();
@@ -55,8 +56,8 @@ namespace CommandPattern
             Debug.Log("Created spell object" + objSpell.ToString());
             ClientScene.RegisterPrefab(objSpell);
             NetworkServer.Spawn(objSpell);
-
-            base.Execute(obj, args);
+            */
+            base.Execute(spellGO, args);
 
         }
     }
@@ -69,16 +70,16 @@ namespace CommandPattern
         }
 
         //Called when we press a key
-        public override void Execute(GameObject obj, Dictionary<string, object> args)
+        public override void Execute(GameObject spellGO, Dictionary<string, object> args)
         {
-            GameObject _aObj = spell.reg[args["object"].ToString()];
+            //GameObject _aObj = spell.reg[args["object"].ToString()];
             Vector3 _aDir = (Vector3)args["direction"];
-            if (_aObj)
+            if (spellGO)
             {
-                _aObj.GetComponent<Rigidbody>().velocity = _aDir;
+                spellGO.GetComponent<Rigidbody>().velocity = _aDir;
             }
 
-            base.Execute(obj, args);
+            base.Execute(spellGO, args);
             
         }
     }

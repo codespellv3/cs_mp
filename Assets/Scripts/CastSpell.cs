@@ -25,7 +25,7 @@ public class CastSpell : NetworkBehaviour
 
 
                 c.Execute(null, args);
-                if (c.name == "EXPLODE")
+                if (c.nname == "EXPLODE")
                 {
 
                 }
