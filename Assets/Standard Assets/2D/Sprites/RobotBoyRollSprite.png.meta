@@ -26,122 +26,68 @@ TextureImporter:
     21300042: RobotBoyRoll21
     21300044: RobotBoyRoll22
     21300046: RobotBoyRoll23
-  externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 2
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-    sRGBTexture: 1
     linearTexture: 0
+    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
-    mipMapsPreserveCoverage: 0
-    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: 0.25
+    heightScale: .25
     normalMapFilter: 0
   isReadable: 0
-  streamingMipmaps: 0
-  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
-  generateCubemap: 6
+  generateCubemap: 0
   cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    serializedVersion: 2
     filterMode: -1
     aniso: 1
-    mipBias: -100
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    mipBias: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
+  rGBM: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
-  alphaUsage: 1
+  spritePixelsToUnits: 200
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
   textureType: 8
-  textureShape: 1
-  singleChannelComponent: 0
-  maxTextureSizeSet: 0
-  compressionQualitySet: 0
-  textureFormatSet: 0
-  platformSettings:
-  - serializedVersion: 2
-    buildTarget: DefaultTexturePlatform
+  buildTargetSettings:
+  - buildTarget: iPhone
     maxTextureSize: 1024
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: iPhone
-    maxTextureSize: 1024
-    resizeAlgorithm: 0
-    textureFormat: 2
-    textureCompression: 1
+    textureFormat: -2
     compressionQuality: 100
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 1
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Android
+  - buildTarget: Android
     maxTextureSize: 1024
-    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 1
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: BlackBerry
+  - buildTarget: BlackBerry
     maxTextureSize: 1024
-    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 1
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: WP8
+  - buildTarget: WP8
     maxTextureSize: 1024
-    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 1
-    androidETC2FallbackOverride: 0
   spriteSheet:
-    serializedVersion: 2
     sprites:
-    - serializedVersion: 2
-      name: RobotBoyRoll00
+    - name: RobotBoyRoll00
       rect:
         serializedVersion: 2
         x: 0
@@ -149,19 +95,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4219e4cc838524bfcbdd8f6d2db4a0a7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll01
+    - name: RobotBoyRoll01
       rect:
         serializedVersion: 2
         x: 275
@@ -169,19 +105,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 97014f49da8b647b2980c49132dc9221
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll02
+    - name: RobotBoyRoll02
       rect:
         serializedVersion: 2
         x: 550
@@ -189,19 +115,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6ec234e0c4f3e4f1ba0ab2e7598dbb62
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll03
+    - name: RobotBoyRoll03
       rect:
         serializedVersion: 2
         x: 825
@@ -209,19 +125,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1162bc0bc94e247a18cb79b8ca68043b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll04
+    - name: RobotBoyRoll04
       rect:
         serializedVersion: 2
         x: 1100
@@ -229,19 +135,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b1b282ae722054f698f294bb638a24cc
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll05
+    - name: RobotBoyRoll05
       rect:
         serializedVersion: 2
         x: 1375
@@ -249,19 +145,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ef398f0781afe472ab43aedfff0547fd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll06
+    - name: RobotBoyRoll06
       rect:
         serializedVersion: 2
         x: 1650
@@ -269,19 +155,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ce4f5004a4bf545c1b54dad004c858c4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll07
+    - name: RobotBoyRoll07
       rect:
         serializedVersion: 2
         x: 0
@@ -289,19 +165,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cf74a561517044060bb5df41f9a5c6c3
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll08
+    - name: RobotBoyRoll08
       rect:
         serializedVersion: 2
         x: 275
@@ -309,19 +175,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9d194512098cb4034b03d99c4653a022
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll09
+    - name: RobotBoyRoll09
       rect:
         serializedVersion: 2
         x: 550
@@ -329,19 +185,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 15ec43c3a1385465baff9017285e54c3
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll10
+    - name: RobotBoyRoll10
       rect:
         serializedVersion: 2
         x: 825
@@ -349,19 +195,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f7221ce8543684bcdb936dea1bf35be5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll11
+    - name: RobotBoyRoll11
       rect:
         serializedVersion: 2
         x: 1100
@@ -369,19 +205,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 337d555e8cb364fbea1477d7ffc77947
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll12
+    - name: RobotBoyRoll12
       rect:
         serializedVersion: 2
         x: 1375
@@ -389,19 +215,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a99584c6ceea644109f615ede6866929
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll13
+    - name: RobotBoyRoll13
       rect:
         serializedVersion: 2
         x: 1644
@@ -409,19 +225,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 60a6725d2aaa94bd1b7908e37163c6e2
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll14
+    - name: RobotBoyRoll14
       rect:
         serializedVersion: 2
         x: 0
@@ -429,19 +235,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 29b8fd4e7b45f451bb7651d20e816dd7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll15
+    - name: RobotBoyRoll15
       rect:
         serializedVersion: 2
         x: 275
@@ -449,19 +245,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 24ea0bc1dff144728be922f803f03324
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll16
+    - name: RobotBoyRoll16
       rect:
         serializedVersion: 2
         x: 550
@@ -469,19 +255,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fc15580ff50d749ed8c60a3242c9edff
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll17
+    - name: RobotBoyRoll17
       rect:
         serializedVersion: 2
         x: 825
@@ -489,19 +265,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f74c5c8af8216458194bcda19ad3f8a7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll18
+    - name: RobotBoyRoll18
       rect:
         serializedVersion: 2
         x: 1100
@@ -509,19 +275,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8230a6bcf09ec4713904d37e983af10d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll19
+    - name: RobotBoyRoll19
       rect:
         serializedVersion: 2
         x: 1375
@@ -529,19 +285,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 74f178d407a0c4fa4a4529a07e06878e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll20
+    - name: RobotBoyRoll20
       rect:
         serializedVersion: 2
         x: 1650
@@ -549,19 +295,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5fb35dff71c424511b3bcb6161b9e777
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll21
+    - name: RobotBoyRoll21
       rect:
         serializedVersion: 2
         x: 0
@@ -569,19 +305,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: edbe2ffaa8bb44a2b80bcf4e7837c466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll22
+    - name: RobotBoyRoll22
       rect:
         serializedVersion: 2
         x: 275
@@ -589,19 +315,9 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ede7ca95962b64f4f9dc36bb97a9ca59
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyRoll23
+    - name: RobotBoyRoll23
       rect:
         serializedVersion: 2
         x: 550
@@ -609,28 +325,8 @@ TextureImporter:
         width: 275
         height: 275
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1975534ab298f48d9a6cac41f774299a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    outline: []
-    physicsShape: []
-    bones: []
-    spriteID: 
-    vertices: []
-    indices: 
-    edges: []
-    weights: []
   spritePackingTag: 
-  pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
-  assetBundleVariant: 
