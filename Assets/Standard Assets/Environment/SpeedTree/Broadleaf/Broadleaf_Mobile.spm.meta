@@ -10,12 +10,12 @@ SpeedTreeImporter:
   lODSettings:
   - height: 0.5
     castShadows: 1
-    receiveShadows: 0
-    useLightProbes: 0
+    receiveShadows: 1
+    useLightProbes: 1
     reflectionProbeUsage: 1
     enableBump: 1
     enableHue: 1
-    windQuality: 0
+    windQuality: 4
   - height: 0.25
     castShadows: 1
     receiveShadows: 1
@@ -23,7 +23,7 @@ SpeedTreeImporter:
     reflectionProbeUsage: 1
     enableBump: 1
     enableHue: 1
-    windQuality: 0
+    windQuality: 4
   - height: 0.125
     castShadows: 1
     receiveShadows: 1
@@ -31,7 +31,7 @@ SpeedTreeImporter:
     reflectionProbeUsage: 1
     enableBump: 1
     enableHue: 1
-    windQuality: 0
+    windQuality: 4
   - height: 0.01
     castShadows: 0
     receiveShadows: 0
@@ -39,7 +39,7 @@ SpeedTreeImporter:
     reflectionProbeUsage: 0
     enableBump: 1
     enableHue: 1
-    windQuality: 0
+    windQuality: 1
   enableSmoothLODTransition: 1
   animateCrossFading: 1
   billboardTransitionCrossFadeWidth: 0.25
