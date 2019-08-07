@@ -2,7 +2,10 @@
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
-[Bb]uilds/
+[Bb]uilds/macClient
+[Bb]uilds/linuxClient
+[Bb]uilds/win64Client
+[Bb]uilds/linuxServer
 [Ll]ogs/
 # Uncomment this line if you wish to ignore the asset store tools plugin
 [Aa]ssets/AssetStoreTools*
